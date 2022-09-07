@@ -4,13 +4,6 @@ import cv2
 import streamlit as st
 
 
-class VideoProcessor:
-    def recv(self, frame):
-        frm = frame.to_ndarray(format="bgr24")
-
-        return av.VideoFrame.from_ndarray(frm, format="bgr24")
-
-
 st.title("My first Streamlit app")
 st.markdown("# HSV Calibration")
 
@@ -25,13 +18,13 @@ class VideoProcessor:
         self.lv = 0
 
     def recv(self, frame):
-        img = frame.to_ndarray(format="bgr24")
+        img = frame.to_ndarray(format="hsv24")
 
         img = cv2.cvtColor(
             cv2.Canny(img, self.threshold1, self.threshold2), cv2.COLOR_BGR2HSV
         )
 
-        return av.VideoFrame.from_ndarray(img, format="bgr24")
+        return av.VideoFrame.from_ndarray(img, format="hsv24")
 
 
 ctx = webrtc_streamer(
