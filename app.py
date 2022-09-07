@@ -22,7 +22,7 @@ class VideoProcessor:
 
         img = cv2.cvtColor(img, cv2.COLOR_BGR2HSV)
 
-        return av.VideoFrame.from_ndarray(img, format="hsv24")
+        return av.VideoFrame.from_ndarray(img, format="hsv32")
 
 
 ctx = webrtc_streamer(
