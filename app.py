@@ -12,7 +12,7 @@ class VideoProcessor:
 
 
 st.title("My first Streamlit app")
-st.mardown("# HSV Calibration")
+st.markdown("# HSV Calibration")
 
 
 class VideoProcessor:
