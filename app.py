@@ -18,11 +18,9 @@ class VideoProcessor:
         self.lv = 0
 
     def recv(self, frame):
-        img = frame.to_ndarray(format="hsv24")
+        img = frame.to_ndarray(format="bgr24")
 
-        img = cv2.cvtColor(
-            cv2.Canny(img, self.threshold1, self.threshold2), cv2.COLOR_BGR2HSV
-        )
+        img = cv2.cvtColor(img, cv2.COLOR_BGR2HSV)
 
         return av.VideoFrame.from_ndarray(img, format="hsv24")
 
